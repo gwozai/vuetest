@@ -7,6 +7,7 @@ import Mediaaudio from './components/mediaaudio.vue'
 
 
   <main>
+    <p>vue 主页</p>
     <Mediaaudio />
   </main>
 </template>
