@@ -1,13 +1,13 @@
 <script setup>
 
-import Fileuplod from './components/Fileupload.vue'
+import Mediaaudio from './components/mediaaudio.vue'
 </script>
 
 <template>
 
 
   <main>
-    <Fileuplod />
+    <Mediaaudio />
   </main>
 </template>
 
