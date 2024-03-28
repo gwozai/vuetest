@@ -6,8 +6,14 @@ import Suijiyiju from './components/suijiyiju.vue';
 // import Videotest from './components/videotest.vue';
 import Geren from './components/geren.vue';
 import Videoaa from './components/videoaa.vue';
-const componentsList = { Mediaaudio, Suijiyiju, Videoaa,Listmedia  };
+import Videojsaa from './components/videojsaa.vue';
+
+const componentsList = { Mediaaudio, Suijiyiju, Videoaa, Listmedia, Videojsaa };
 const components = Object.keys(componentsList);
+
+// 添加组件别名
+const componentsAlias = { Mediaaudio: '媒体音频', Suijiyiju: '随机一句', Videoaa: '视频组件', Listmedia: '列表媒体', Videojsaa: '视频组件aa' };
+
 const selectedComponent = ref(components[0]);
 
 // Emulate close operation when component is switched
@@ -24,7 +30,7 @@ onBeforeUnmount(() => {
 
   <div class="select-container">
     <select v-model="selectedComponent" class="custom-select">
-      <option v-for="(component, index) in components" :value="component" :key="index">{{ `Show ${component}` }}</option>
+      <option v-for="(component, index) in components" :value="component" :key="index">{{ `Show ${componentsAlias[component]}` }}</option>
     </select>
   </div>
   <div class="component-container">
@@ -33,6 +39,7 @@ onBeforeUnmount(() => {
 
 </main>
 </template>
+
 
 <style scoped>
 .main {
