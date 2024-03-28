@@ -18,7 +18,7 @@ export default {
     return {
       showPopup: false,
       mediaName: 'media',
-      mediaSource: '/assets/obj_wo3DlMOGwrbDjj7DisKw_26273634012_a205_52a8_2af8_18a28fd85860e30f2065db73380912e7.flac',
+      mediaSource: '/obj_wo3DlMOGwrbDjj7DisKw_26273634012_a205_52a8_2af8_18a28fd85860e30f2065db73380912e7.flac',
       mediaType: 'audio/flac'
       
     }
