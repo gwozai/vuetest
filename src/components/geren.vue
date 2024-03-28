@@ -4,10 +4,10 @@
         <h1 v-if="show">欢迎来到我的个人主页!</h1>
       </transition>
       <button @click="show = !show">Toggle welcome</button>
-      <p>我是 [你的名字]，一名 [你的职业/你的兴趣]。</p>
+      <p>我是 lsp，这是我的个人主页。</p>
       <button @click="toggleDescription">更多信息</button>
       <transition name="slide-fade">
-        <p v-if="showDescription">在这里添加更多关于你自己的信息。</p>
+        <p v-if="showDescription">日常写的小组件展示。</p>
       </transition>
     </div>
   </template>
