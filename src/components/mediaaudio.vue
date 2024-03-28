@@ -18,8 +18,9 @@ export default {
     return {
       showPopup: false,
       mediaName: 'media',
-      mediaSource: 'http://1.15.7.2:9000/album/%E9%86%89%E7%BA%A2%E9%A2%9C_%E5%88%98%E4%BE%9D%E6%9C%B5.flac',
-      mediaType: 'audio/flac'
+      mediaSource: './../assets/1.mp3',
+      mediaType: 'audio/mpeg'
+      
     }
   }
 }
@@ -28,7 +29,7 @@ export default {
 <style scoped>
 .container {
   text-align: center;
-  background: url('202403280345955.jpg') no-repeat center center fixed;
+  background: url('./../assets/202403280345955.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
