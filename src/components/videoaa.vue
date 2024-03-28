@@ -1,6 +1,6 @@
 <template>
   <video-player
-    class="video-player vjs-custom-skin v-player"
+    class="video-player vjs-custom-skin v-player transparent"
     ref="videoPlayer"
     :playsinline="true"
     controls
@@ -9,7 +9,6 @@
     :options="playerOptions"
   ></video-player>
 </template>
-
 <script>
 export default {
   data() {
@@ -43,3 +42,12 @@ export default {
   },
 };
 </script>
+<style scoped>
+.video-player video {
+  background-color: transparent;
+}
+
+.vjs-custom-skin {
+  background-color: transparent;
+}
+</style>
