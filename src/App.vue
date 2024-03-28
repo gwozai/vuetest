@@ -4,6 +4,7 @@ import Listmedia from './components/listmedia.vue'
 import Mediaaudio from './components/mediaaudio.vue'
 import Suijiyiju from './components/suijiyiju.vue';
 import Videotest from './components/videotest.vue';
+// import Markdowntest from './components/markdowntest.vue';
 
 const showComponent = ref(false);
 
@@ -19,6 +20,7 @@ function toggleComponent() {
     <Mediaaudio />
     <Videotest />
     <Suijiyiju />
+    <!-- <Markdowntest /> -->
     <button @click="toggleComponent">测试部分</button>
     <Listmedia v-if="showComponent" />
   </main>
