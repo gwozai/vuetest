@@ -50,9 +50,12 @@
         if (playingAudio) {
             playingAudio.pause()
         }
-    
+
         // 创建新的音频对象并播放
         playingAudio = new Audio(linkToPlay)
+        playingAudio.onerror = function() {
+        console.error('播放音频时发生问题：' + linkToPlay);
+        };
         playingAudio.play()
     }
     </script>
