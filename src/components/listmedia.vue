@@ -18,7 +18,7 @@
     import { ref } from 'vue'
     
     // 创建包含默认链接的播放列表
-    const audioLinksList = ref(["http://1.15.7.2:9000/album/%E9%86%89%E7%BA%A2%E9%A2%9C_%E5%88%98%E4%BE%9D%E6%9C%B5.flac"])
+    const audioLinksList = ref(["http://1.15.7.2:9000/album/%E9%86%89%E7%BA%A2%E9%A2%9C_%E5%88%98%E4%BE%9D%E6%9C%B5.flac","/1.mp3","/obj_wo3DlMOGwrbDjj7DisKw_26273634012_a205_52a8_2af8_18a28fd85860e30f2065db73380912e7.flac"])
     
     // 新链接变量
     const newLink = ref('')
