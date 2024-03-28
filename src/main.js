@@ -5,7 +5,7 @@ import App from './App.vue'
 // Import videojs and related css
 import VueVideoPlayer from 'vue-video-player'
 import 'video.js/dist/video-js.css'
-import 'vue-video-player/src/custom-theme.css'
+// import 'vue-video-player/src/custom-theme.css'
 
 // Create app
 const app = createApp(App)

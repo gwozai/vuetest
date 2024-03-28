@@ -12,7 +12,7 @@ data() {
   return {
     playerOptions: {
       playbackRates: [0.7, 1.0, 1.5, 2.0],
-      autoplay: false,
+      autoplay: true,
       muted: false,
       loop: false,
       preload: 'auto',
@@ -21,7 +21,7 @@ data() {
       fluid: true,
       sources: [{
         type: "video/mp4",
-        src: "src/assets/1.mp4" //你的视频文件路径
+        src: "/1.mp4" //你的视频文件路径
       }],
       poster: "https://p1.music.126.net/5zs7IvmLv7KahY3BFzUmrg==/109951163635241613.jpg?param=600y500",
       notSupportedMessage: '此视频暂无法播放，请稍后再试',
