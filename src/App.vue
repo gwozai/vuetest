@@ -7,8 +7,9 @@ import Suijiyiju from './components/suijiyiju.vue';
 import Geren from './components/geren.vue';
 import Videoaa from './components/videoaa.vue';
 import Videojsaa from './components/videojsaa.vue';
+import Nihaowu from './components/nihaowu.vue';
 
-const componentsList = { Mediaaudio, Suijiyiju, Videoaa, Listmedia, Videojsaa };
+const componentsList = { Mediaaudio, Suijiyiju, Videoaa, Listmedia, Videojsaa,Nihaowu };
 const components = Object.keys(componentsList);
 
 // 添加组件别名
