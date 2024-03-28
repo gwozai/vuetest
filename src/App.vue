@@ -4,6 +4,7 @@ import Listmedia from './components/listmedia.vue';
 import Mediaaudio from './components/mediaaudio.vue';
 import Suijiyiju from './components/suijiyiju.vue';
 import Videotest from './components/videotest.vue';
+import Geren from './components/geren.vue';
 
 const componentsList = { Mediaaudio, Suijiyiju, Videotest,Listmedia  };
 const components = Object.keys(componentsList);
@@ -17,6 +18,10 @@ onBeforeUnmount(() => {
 
 <template>
 <main>
+  <div class="myinfo">
+    <Geren />
+  </div>
+
   <div class="select-container">
     <select v-model="selectedComponent" class="custom-select">
       <option v-for="(component, index) in components" :value="component" :key="index">{{ `Show ${component}` }}</option>
@@ -45,7 +50,12 @@ onBeforeUnmount(() => {
   display: flex;
   justify-content: center;
 }
+.myinfo{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 
+}
 .custom-select {
   background: transparent;
   border: 1px solid #000;
