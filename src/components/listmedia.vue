@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>Your Audio links List:</h2>
+        <h2>资源列表:</h2>
         <ul>
             <li v-for="(link, index) in audioLinksList" :key="index">
                 {{ link }} 
@@ -8,8 +8,8 @@
                 <button @click="playLink(link)">播放</button>
             </li>
         </ul>
-        <h2>Add new audio link:</h2>
-        <input v-model="newLink" placeholder="Add new audio link here..."/>
+        <h2>资源添加:</h2>
+        <input v-model="newLink" placeholder="输入要播放的资源链接..."/>
         <button @click="addLink(newLink)">添加</button>
     </div>
     </template>
