@@ -1,6 +1,6 @@
 # wenjianshangc
 
-This template should help get you started developing with Vue 3 in Vite.
+一个用来测试vue组件的项目，写一些日常的小练习
 
 ## Recommended IDE Setup
 
