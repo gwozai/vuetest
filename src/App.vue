@@ -5,8 +5,8 @@ import Mediaaudio from './components/mediaaudio.vue';
 import Suijiyiju from './components/suijiyiju.vue';
 import Videotest from './components/videotest.vue';
 import Geren from './components/geren.vue';
-
-const componentsList = { Mediaaudio, Suijiyiju, Videotest,Listmedia  };
+import Videoaa from './components/videoaa.vue';
+const componentsList = { Mediaaudio, Suijiyiju, Videotest,Listmedia,Videoaa  };
 const components = Object.keys(componentsList);
 const selectedComponent = ref(components[0]);
 
@@ -30,6 +30,7 @@ onBeforeUnmount(() => {
   <div class="component-container">
     <component :is="componentsList[selectedComponent]" />
   </div>
+
 </main>
 </template>
 
