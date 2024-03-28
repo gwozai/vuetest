@@ -6,7 +6,7 @@
     <div v-if="showPopup" class="popup">
       正在播放：{{ mediaSource }}
     </div>
-    <video class="player" controls autoplay :name="mediaName">
+    <video class="player" controls autoplay :name="mediaName" crossorigin="anonymous">
       <source :src="mediaSource" :type="mediaType">
     </video>
   </div>
@@ -28,7 +28,7 @@ export default {
 <style scoped>
 .container {
   text-align: center;
-  background: url('http://1.15.7.2:9000/picshow/imfree/202403280345955.jpg') no-repeat center center fixed;
+  background: url('202403280345955.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
