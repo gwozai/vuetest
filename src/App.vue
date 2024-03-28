@@ -3,10 +3,10 @@ import { ref, onBeforeUnmount } from 'vue';
 import Listmedia from './components/listmedia.vue';
 import Mediaaudio from './components/mediaaudio.vue';
 import Suijiyiju from './components/suijiyiju.vue';
-import Videotest from './components/videotest.vue';
+// import Videotest from './components/videotest.vue';
 import Geren from './components/geren.vue';
 import Videoaa from './components/videoaa.vue';
-const componentsList = { Mediaaudio, Suijiyiju, Videotest,Listmedia,Videoaa  };
+const componentsList = { Mediaaudio, Suijiyiju, Videoaa,Listmedia  };
 const components = Object.keys(componentsList);
 const selectedComponent = ref(components[0]);
 
