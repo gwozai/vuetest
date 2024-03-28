@@ -1,29 +1,59 @@
 <script setup>
-  import { ref } from 'vue';
-  import { ElDialog } from 'element-plus';
-  import Listmedia from './components/listmedia.vue'
-  import Mediaaudio from './components/mediaaudio.vue'
-  import Suijiyiju from './components/suijiyiju.vue';
-  import Videotest from './components/videotest.vue';
+import { ref, onBeforeUnmount } from 'vue';
+import Listmedia from './components/listmedia.vue';
+import Mediaaudio from './components/mediaaudio.vue';
+import Suijiyiju from './components/suijiyiju.vue';
+import Videotest from './components/videotest.vue';
 
-  const components = ['Mediaaudio', 'Videotest', 'Suijiyiju', 'Listmedia'];
-  const selectedComponent = ref(components[0]);
-  const isDialogVisible = ref(false);
+const componentsList = { Mediaaudio, Suijiyiju, Videotest,Listmedia  };
+const components = Object.keys(componentsList);
+const selectedComponent = ref(components[0]);
+
+// Emulate close operation when component is switched
+onBeforeUnmount(() => {
+  console.log(`Component ${selectedComponent.value} closed`);
+});
 </script>
 
-
 <template>
-  <main>
-    <p>vue 主页</p>
-
-    <button @click="isDialogVisible = true">选择要显示的组件</button>
-
-    <el-dialog title="请选择要显示的组件" :visible.sync="isDialogVisible">
-      <button v-for="component in components" @click="selectedComponent = component">{{ `显示 ${component}` }}</button>
-    </el-dialog>
-
-    <component :is="selectedComponent"></component>
-  </main>
+<main>
+  <div class="select-container">
+    <select v-model="selectedComponent" class="custom-select">
+      <option v-for="(component, index) in components" :value="component" :key="index">{{ `Show ${component}` }}</option>
+    </select>
+  </div>
+  <div class="component-container">
+    <component :is="componentsList[selectedComponent]" />
+  </div>
+</main>
 </template>
+
 <style scoped>
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.select-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.component-container {
+  display: flex;
+  justify-content: center;
+}
+
+.custom-select {
+  background: transparent;
+  border: 1px solid #000;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  outline: none;
+  color: #000;
+  padding: 5px 10px;
+  font-size: 1em;
+  border-radius: 5px;
+}
 </style>
