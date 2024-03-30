@@ -8,6 +8,7 @@
         </option>
       </select>
       <button @click="fetchData">获取</button>
+      <p v-if="loading">加载中...</p>
       <div v-if="data">
         <h2>返回结果:</h2>
         <pre>{{ data }}</pre>
@@ -21,11 +22,23 @@
   export default {
     data() {
       return {
-        categories: ["Anime", "Comic", "Game", "Literature", "Original", 
-                     "Internet", "Other", "Video", "Poem", "NCM", 
-                     "Philosophy", "Funny"],
+        categories: [
+          "Anime",
+          "Comic",
+          "Game",
+          "Literature",
+          "Original",
+          "Internet",
+          "Other",
+          "Video",
+          "Poem",
+          "NCM",
+          "Philosophy",
+          "Funny",
+        ],
         selectedCategory: "",
         data: null,
+        loading: false,
       };
     },
     methods: {
@@ -34,11 +47,19 @@
           alert("请先选择一个分类");
           return;
         }
-        const response = await axios.get("https://myjsapi.vercel.app", { 
-          params: { category: this.selectedCategory } 
-        });
-        this.data = response.data;
-      }
+        this.loading = true;
+        try {
+          const response = await axios.get("/api", {
+            params: { category: this.selectedCategory },
+          });
+          this.data = response.data;
+        } catch (error) {
+          console.error(error);
+          alert("请求失败");
+        } finally {
+          this.loading = false;
+        }
+      },
     },
   };
   </script>
