@@ -5,8 +5,8 @@ import Mediaaudio from './components/mediaaudio.vue';
 import Suijiyiju from './components/suijiyiju.vue';
 // import Videotest from './components/videotest.vue';
 import Geren from './components/geren.vue';
-import Videoaa from './components/videotest/videoaa.vue';
-import Videojsaa from './components/videotest/videojsaa.vue';
+import Videoaa from './components/videoaa.vue';
+import Videojsaa from './components/videojsaa.vue';
 import Nihaowu from './components/nihaowu.vue';
 import Noterecordaa from './components/noterecordaa.vue';
 

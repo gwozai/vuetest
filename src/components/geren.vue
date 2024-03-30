@@ -8,17 +8,7 @@
     <button @click="toggleDescription">更多信息</button>
     <transition name="slide-fade">
       <p v-if="showDescription">日常写的小组件展示在这里。</p>
-      <table v-if="showDescription">
-        <tr>
-          <td><a href="https://myjs.gwozai.com/">lsp做的网站</a></td>
-        </tr>
-        <tr>
-          <td><a href="https://myjsapi.vercel.app/">myjsapi.vercel.app</a></td>
-        </tr>
-        <tr>
-          <td><a href="https://www.gwozai.com/#/home">Java专家随笔记</a></td>
-        </tr>
-      </table>
+
     </transition>
    </div>
   </template>
@@ -38,22 +28,53 @@
     },
   }
   </script>
+
+
+<style scoped>
+
+.profile {
+  font-family: "Arial", sans-serif;
+  color: #2c3e50;
+}
+
+.greeting {
+  font-size: 2em;
+  color: #1a1a1a;
+}
+
+.toggle-btn, .toggle-details-btn {
+  margin-top: 1em;
+  background-color: #34495e;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.description {
+  font-size: 1.2em;
+  margin-top: 1em;
+}
+
+.further-details {
+  margin-top: 2em;
+}
+
+.links-list {
+  margin-top: 1em;
+}
+
+.link-item {
+  display: block;
+  margin-bottom: 0.5em;
+  color: #34495e;
+  text-decoration: none;
+}
+
+.link-item:hover {
+  text-decoration: underline;
+  color: #1a1a1a;
+}
+
+</style>
   
-  <style scoped>
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity .5s;
-  }
-  .fade-enter, .fade-leave-to {
-    opacity: 0;
-  }
-  .slide-fade-enter-active {
-    transition: all .3s ease;
-  }
-  .slide-fade-leave-active {
-    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-  }
-  .slide-fade-enter, .slide-fade-leave-to {
-    transform: translateX(10px);
-    opacity: 0;
-  }
-  </style>
