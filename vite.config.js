@@ -16,7 +16,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://myjsapi.vercel.app',
+        target: 'https://myjsapi.gwozai.com',
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''
