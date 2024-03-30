@@ -49,7 +49,7 @@
         }
         this.loading = true;
         try {
-          const response = await axios.get("/api/", {
+          const response = await axios.get(`${this.$apiURL}`, {
             params: { category: this.selectedCategory },
             headers: {
                 'Accept': 'application/json'
