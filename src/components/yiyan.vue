@@ -51,6 +51,9 @@
         try {
           const response = await axios.get("/api", {
             params: { category: this.selectedCategory },
+            headers: {
+                'Accept': 'application/json'
+            } 
           });
           this.data = response.data;
         } catch (error) {
