@@ -1,6 +1,9 @@
-# wenjianshangc
+# AI魔法师训练场
+> 羊帅
 
 一个用来测试vue组件的项目，写一些日常的小练习
+
+
 
 ## Recommended IDE Setup
 
