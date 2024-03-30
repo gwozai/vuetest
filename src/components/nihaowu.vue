@@ -1,3 +1,3 @@
 <template>
-    <p></p>
+    <p>你好污组件编写</p>
 </template>
