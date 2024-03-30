@@ -9,8 +9,8 @@ import Videoaa from './components/videoaa.vue';
 import Videojsaa from './components/videojsaa.vue';
 import Nihaowu from './components/nihaowu.vue';
 import Noterecordaa from './components/noterecordaa.vue';
-
-const componentsList = { Mediaaudio, Suijiyiju, Videoaa, Listmedia, Videojsaa,Nihaowu ,Noterecordaa};
+import Yiyan from './components/yiyan.vue';
+const componentsList = { Mediaaudio, Suijiyiju, Videoaa, Listmedia, Videojsaa,Nihaowu ,Noterecordaa,Yiyan};
 const components = Object.keys(componentsList);
 
 // 添加组件别名

@@ -4,7 +4,7 @@
       <h1 v-if="show">欢迎来到我的个人主页!</h1>
     </transition>
     <button @click="show = !show">Toggle welcome</button>
-    <p>我是 lsp，这是我的个人主页。</p>
+    <p>我是 AI大魔法师羊帅，这是我的个人主页。</p>
     <button @click="toggleDescription">更多信息</button>
     <transition name="slide-fade">
       <p v-if="showDescription">日常写的小组件展示在这里。</p>
