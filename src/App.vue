@@ -10,11 +10,11 @@ import Videojsaa from './components/videojsaa.vue';
 import Nihaowu from './components/nihaowu.vue';
 import Noterecordaa from './components/noterecordaa.vue';
 import Yiyan from './components/yiyan.vue';
-const componentsList = { Mediaaudio, Suijiyiju, Videoaa, Listmedia, Videojsaa,Nihaowu ,Noterecordaa,Yiyan};
+const componentsList = { Mediaaudio, Yiyan, Suijiyiju, Videoaa, Listmedia, Videojsaa,Nihaowu ,Noterecordaa,Yiyan};
 const components = Object.keys(componentsList);
 
 // 添加组件别名
-const componentsAlias = { Mediaaudio: '视频播放', Suijiyiju: '随机一句', Videoaa: '视频播放组件', Listmedia: '音乐展示', Videojsaa: '视频组件aa',Noterecordaa: '便签'};
+const componentsAlias = { Mediaaudio: '音频播放', Suijiyiju: '随机一句', Videoaa: '视频播放组件', Listmedia: '音乐展示', Videojsaa: '视频组件aa',Noterecordaa: '便签',Yiyan: '一言'};
 
 const selectedComponent = ref(components[0]);
 
