@@ -18,9 +18,8 @@ export default defineConfig({
       '/api': {
         target: 'https://myjsapi.gwozai.com',
         changeOrigin: true,
-        pathRewrite: {
-          '^/api': ''
-        }
+        rewrite: (path) => path.replace(/^\/api/, '')
+
       }
     }
   }
