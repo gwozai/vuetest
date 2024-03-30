@@ -1,30 +1,28 @@
 <template>
   <div class="profile">
     <transition name="fade">
-      <div>
-        <h1 v-if="show" class="greeting">欢迎来到我的个人主页!</h1>
-      </div>
+      <h1 v-if="show">欢迎来到我的个人主页!</h1>
     </transition>
-    
-    <button class="toggle-btn" @click="show = !show">切换欢迎消息</button>
-    
-    <p class="description">我是lsp, 这是我的个人主页。</p>
-    
-    <button class="toggle-details-btn" @click="toggleDescription">显示更多信息</button>
-    
+    <button @click="show = !show">Toggle welcome</button>
+    <p>我是 lsp，这是我的个人主页。</p>
+    <button @click="toggleDescription">更多信息</button>
     <transition name="slide-fade">
-      <div v-if="showDescription">
-        <p class="further-details">在这里，您可以查看我写的一些小组件展示：</p>
-        <div class="links-list">
-          <a href="https://myjs.gwozai.com/" class="link-item">lsp做的网站</a>
-          <a href="https://myjsapi.vercel.app/" class="link-item">myjsapi.vercel.app</a>
-          <a href="https://www.gwozai.com/#/home" class="link-item">Java专家随笔记</a>
-        </div>
-      </div>
+      <p v-if="showDescription">日常写的小组件展示在这里。</p>
+      <table v-if="showDescription">
+        <tr>
+          <td><a href="https://myjs.gwozai.com/">lsp做的网站</a></td>
+        </tr>
+        <tr>
+          <td><a href="https://myjsapi.vercel.app/">myjsapi.vercel.app</a></td>
+        </tr>
+        <tr>
+          <td><a href="https://www.gwozai.com/#/home">Java专家随笔记</a></td>
+        </tr>
+      </table>
     </transition>
-  </div>
-</template>
-
+   </div>
+  </template>
+  
   <script>
   export default {
     data() {
