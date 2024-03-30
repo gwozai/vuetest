@@ -36,7 +36,7 @@
           "Philosophy",
           "Funny",
         ],
-        selectedCategory: "",
+        selectedCategory: "Comic",
         data: null,
         loading: false,
       };
