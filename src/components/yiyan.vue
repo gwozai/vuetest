@@ -136,7 +136,7 @@
   
         const config = {
           method: 'get',
-          url: `/api?category=${this.selectedCategory}`,
+          url: `/api/?category=${this.selectedCategory}`,
           headers: { 
             'Accept': 'application/json', 
           }
