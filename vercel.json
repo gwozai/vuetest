@@ -1,0 +1,5 @@
+{
+    "rewrites": [
+      { "source": "/api/(.*)", "destination": "https://myjsapi.gwozai.com/api/$1" }
+    ]
+}
