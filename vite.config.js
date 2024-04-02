@@ -13,21 +13,9 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
-  devServer: {
-    proxy: {
-      '/api': {
-        target: 'https://myjsapi.gwozai.com', // target host
-        // ws: true, // proxy websockets 
-        changeOrigin: true, // needed for virtual hosted sites
-        // pathRewrite: {
-        //   '^/api': '' // rewrite path
-        // }
-        rewrite: (path) => path.replace(/^\/api/, '')
-
-      },
-    }
-  },
   server: {
+    // 反代配置
+
     proxy: {
       '/api': {
         target: 'http://127.0.0.1:5000',

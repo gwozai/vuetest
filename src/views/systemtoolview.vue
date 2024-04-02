@@ -1,7 +1,7 @@
 <template>
     <div>
-       <h1>这是另一个组件</h1>
-       <EnvComponent/>
+        <!-- 是开发还是生产 -->
+       <EnvComponent/> 
     </div>
   </template>
   
