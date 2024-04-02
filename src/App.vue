@@ -10,6 +10,7 @@ import Videojsaa from './components/videojsaa.vue';
 import Nihaowu from './components/nihaowu.vue';
 import Noterecordaa from './components/noterecordaa.vue';
 import Yiyan from './components/yiyan.vue';
+import Todo from './views/todolista.vue'
 const componentsList = { Mediaaudio, Yiyan, Suijiyiju, Videoaa, Listmedia, Videojsaa,Nihaowu ,Noterecordaa,Yiyan};
 const components = Object.keys(componentsList);
 
@@ -28,6 +29,7 @@ onBeforeUnmount(() => {
 <main>
   <div class="myinfo">
     <Geren />
+    <Todo />
   </div>
 
   <div class="select-container">
