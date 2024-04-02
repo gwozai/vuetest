@@ -3,19 +3,32 @@
 const apiUtils = {
     apiURL: process.env.NODE_ENV === 'production' ? 'https://myjsapi.gwozai.com' : 'http://localhost:5000',
   
-    async testCreateTask() {
-      try {
-        const response = await fetch(`${this.apiURL}/create_task`, { method: 'POST' });
-        const data = await response.json();
-        if (response.status === 200) {
-          console.log("Task created successfully:", data.task);
-        } else {
-          console.log("Failed to create task:", data.message);
+    async testCreateTask(title, description, completed) {
+        const requestData = {
+            title: title,
+            description: description,
+            completed: completed
+        };
+    
+        try {
+            const response = await fetch(`${this.apiURL}/create_task`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(requestData)
+            });
+            const data = await response.json();
+            if (response.status === 200) {
+                console.log("Task created successfully:", data.task);
+            } else {
+                console.log("Failed to create task:", data.message);
+            }
+        } catch (error) {
+            console.error('Error:', error);
         }
-      } catch (error) {
-        console.error('Error:', error);
-      }
     },
+    
   
     async testGetAllTasks() {
       try {

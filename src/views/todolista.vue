@@ -16,7 +16,7 @@ import apiUtils from '@/jscom/apiUtils.js';
 export default {
   methods: {
     async createTask() {
-      await apiUtils.testCreateTask();
+      await apiUtils.testCreateTask("test task","test description","1");
     },
     async getAllTasks() {
       await apiUtils.testGetAllTasks();
