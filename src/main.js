@@ -17,10 +17,15 @@ import VueVideoPlayer from 'vue-video-player'
 import 'video.js/dist/video-js.css'
 // import 'vue-video-player/src/custom-theme.css'
 
+// Import Element Plus
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+
 // Create app
 const app = createApp(App)
 app.config.globalProperties.$apiURL = apiURL // Use video player
 app.use(VueVideoPlayer)
+app.use(ElementPlus, { size: 'small', zIndex: 3000 }) // Use Element Plus
 
 // Mount app
 app.mount('#app')

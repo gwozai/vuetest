@@ -2,7 +2,9 @@
   <div class="profile">
     <transition name="fade">
       <h1 v-if="show">欢迎来到我的个人主页!</h1>
+
     </transition>
+    <figure></figure>
     <button @click="show = !show">Toggle welcome</button>
     <p>我是 AI大魔法师帅帅羊，这是我的个人主页。</p>
     <button @click="toggleDescription">更多信息</button>
@@ -14,7 +16,9 @@
   </template>
   
   <script>
+  import figure from './cartoon/figures.vue'
   export default {
+
     data() {
       return {
         show: true,

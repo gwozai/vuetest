@@ -2,6 +2,8 @@
 
 const apiUtils = {
     apiURL: process.env.NODE_ENV === 'production' ? 'https://myjsapi.gwozai.com' : '/api',
+
+
     
     async testCreateTask(title, description, completed) {
         const requestData = {
@@ -11,7 +13,7 @@ const apiUtils = {
         };
     
         try {
-            const response = await fetch(`${this.$apiURL}/create_task`, {
+            const response = await fetch(`${this.apiURL}/create_task`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
