@@ -17,7 +17,7 @@ export default defineConfig({
     proxy: {
       '/api': {
         target: 'https://myjsapi.gwozai.com', // target host
-        ws: true, // proxy websockets 
+        // ws: true, // proxy websockets 
         changeOrigin: true, // needed for virtual hosted sites
         // pathRewrite: {
         //   '^/api': '' // rewrite path

@@ -10,12 +10,26 @@ import Videojsaa from './components/videojsaa.vue';
 import Nihaowu from './components/nihaowu.vue';
 import Noterecordaa from './components/noterecordaa.vue';
 import Yiyan from './components/yiyan.vue';
-import Todo from './views/todolista.vue'
-const componentsList = { Yiyan, Mediaaudio, Suijiyiju, Videoaa, Listmedia, Videojsaa,Nihaowu ,Noterecordaa,Yiyan,Videotest};
+import Todo from './views/todolista.vue';
+import SystemtoolviewVue from './views/systemtoolview.vue';
+
+const componentsList = { Yiyan, Mediaaudio, Suijiyiju, Videoaa, Listmedia, Videojsaa,Nihaowu ,Noterecordaa,Yiyan,Videotest,SystemtoolviewVue};
 const components = Object.keys(componentsList);
 
 // 添加组件别名
-const componentsAlias = { Mediaaudio: '音频播放', Suijiyiju: '随机一句', Videoaa: '视频播放组件', Listmedia: '音乐展示', Videojsaa: '视频组件',Noterecordaa: '便签',Yiyan: '一言','Nihaowu':'你好污','Videotest':'elementui'};
+const componentsAlias = { Mediaaudio: '音频播放', 
+Suijiyiju: '随机一句', 
+Videoaa: '视频播放组件',
+ Listmedia: '音乐展示',
+  Videojsaa: '视频组件',
+  Noterecordaa: '便签',
+  Yiyan: '一言',
+  'Nihaowu':'你好污',
+  'Videotest':'elementui',
+  'SystemtoolviewVue': '系统工具',
+  'Todo':'待办事项',
+  'SystemtoolviewVue':'系统工具'
+};
 
 const selectedComponent = ref(components[0]);
 
