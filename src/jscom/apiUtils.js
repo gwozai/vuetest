@@ -1,10 +1,7 @@
 // apiUtils.js
 
 const apiUtils = {
-    apiURL: process.env.NODE_ENV === 'production' ? 'https://myjsapi.gwozai.com' : '/api',
 
-
-    
     async testCreateTask(title, description, completed) {
         const requestData = {
             title: title,
@@ -13,7 +10,7 @@ const apiUtils = {
         };
     
         try {
-            const response = await fetch(`${this.apiURL}/create_task`, {
+            const response = await fetch(`/api/create_task`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -34,7 +31,7 @@ const apiUtils = {
   
     async testGetAllTasks() {
       try {
-        const response = await fetch(`${this.apiURL}/get_all_tasks`);
+        const response = await fetch(`/api/get_all_tasks`);
         const data = await response.json();
         if (response.status === 200) {
           console.log("All tasks:", data.tasks);
@@ -48,7 +45,7 @@ const apiUtils = {
   
     async testGetTaskById(taskId) {
       try {
-        const response = await fetch(`${this.apiURL}/get_task/${taskId}`);
+        const response = await fetch(`/api/get_task/${taskId}`);
         const data = await response.json();
         if (response.status === 200) {
           console.log(`Task with ID ${taskId}:`, data.task);
@@ -81,7 +78,7 @@ const apiUtils = {
   
     async testDeleteTask(taskId) {
       try {
-        const response = await fetch(`${this.apiURL}/delete_task/${taskId}`, { method: 'DELETE' });
+        const response = await fetch(`/api/delete_task/${taskId}`, { method: 'DELETE' });
         const data = await response.json();
         if (response.status === 200) {
           console.log("Task deleted successfully");
