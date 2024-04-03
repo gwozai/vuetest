@@ -1,0 +1,91 @@
+// router/index.js
+
+import { createRouter, createWebHistory } from "vue-router";
+import Home from '@/views/Home.vue'
+import Gallery from '@/views/Gallery.vue'
+import Login from '@/views/Login.vue'
+import About from '@/views/About.vue'
+
+
+const routes = [
+  {
+    path: "/",
+    name: "Home",
+    component: Home
+
+  },
+  {
+    path: "/gallery",
+    name: "Gallery",
+    component: Gallery,
+    meta: { requiresAuth: true } // 添加 requiresAuth 元字段
+  },
+  {
+    path: "/about",
+    name: "About",
+    component: About,
+    meta: { requiresAuth: false } // 添加 requiresAuth 元字段
+  },
+
+
+  {
+    path: "/login",
+    name: "Login",
+    component: Login,
+    props: (route) => ({ redirectFrom: route.query.redirectFrom }) // 将跳转来源作为 props 传递给登录页面
+  }
+];
+
+
+
+
+// 模拟用户登录状态
+let isAuthenticated = () => {
+  return localStorage.getItem('user') !== null;
+};
+
+// 模拟用户登录
+const login = () => {
+  localStorage.setItem('user', 'loggedIn');
+};
+
+// 模拟用户退出
+const logout = () => {
+  localStorage.removeItem('user');
+};
+
+
+// 创建路由实例
+const router = createRouter({
+  history: createWebHistory(),
+  routes
+});
+
+
+
+// 添加全局导航守卫
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (!isAuthenticated()) {
+      // 如果用户未登录且访问需要认证的页面，则重定向到登录页面
+      next({
+        path: '/login',
+        query: { redirect: to.fullPath }
+      });
+    } else {
+      // 如果用户已登录，则允许导航
+      next();
+    }
+  } else {
+    // 如果访问的页面不需要认证，则直接允许导航
+    // export default router;
+
+    next();
+  }
+});
+
+
+
+
+export { router, login, logout ,isAuthenticated};
+
