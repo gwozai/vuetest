@@ -1,5 +1,5 @@
 // router/index.js
-
+// 如果是生产环境，直接跳转到mypage
 import { createRouter, createWebHistory } from "vue-router";
 import Home from '@/views/Home.vue'
 import Gallery from '@/views/Gallery.vue'
@@ -80,6 +80,8 @@ const router = createRouter({
 
 // 添加全局导航守卫
 router.beforeEach((to, from, next) => {
+  console.log(`Navigating to ${to.fullPath}`); // 打印日志
+
   if (to.matched.some(record => record.meta.requiresAuth)) {
     // if (!isAuthenticated()) {
     if (!auth.isAuthenticated()) {
@@ -100,6 +102,19 @@ router.beforeEach((to, from, next) => {
   }
 });
 
+// 检查当前环境是否为生产环境
+const isProduction = process.env.NODE_ENV === 'production';
+
+// 如果是生产环境，并且路径是根路径，则重定向到 mypage 页面
+if (isProduction) {
+  router.beforeEach((to, from, next) => {
+    if (to.path === '/') {
+      next('/mypage');
+    } else {
+      next();
+    }
+  });
+}
 
 // export default router;
 
