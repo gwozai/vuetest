@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <div class="navigation">
-      <router-link to="/mypage">My Page</router-link>
+      <router-link to="/mypage">我的主页</router-link>
+      <router-link to="/home">测试中的页面...</router-link>
+
     </div>
     <router-view></router-view>
   </div>
