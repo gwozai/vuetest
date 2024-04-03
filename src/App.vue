@@ -1,27 +1,26 @@
 <template>
   <div id="app">
     <div class="navigation">
-      <router-link to="/mypage">我的主页</router-link>
-      <router-link to="/home">测试中的页面...</router-link>
-
-    </div>
+    <router-link :to="{ path: '/mypage' }" class="nav-item">我的主页</router-link>
+    <router-link :to="{ path: '/home' }" class="nav-item">测试中的页面...</router-link>
+  </div>
     <router-view></router-view>
   </div>
 </template>
 
-<style scoped>
+
+<style>
 .navigation {
-  margin-bottom: 20px;
+  margin-left: 20px;
 }
 
-.navigation a {
-  color: blue;
+.nav-item {
+  margin-right: 20px;
+  color: #007bff;
   text-decoration: none;
-  margin-right: 10px;
 }
 
-.navigation a:hover {
-  color: red;
-  cursor: pointer;
+.nav-item:hover {
+  text-decoration: underline;
 }
 </style>
