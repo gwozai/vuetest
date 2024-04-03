@@ -1,11 +1,7 @@
 <template>
   <div id="app">
     <div class="navigation">
-      <!-- <router-link to="/">Home</router-link> <br> -->
-      <!-- <router-link to="/about">About</router-link> <br> -->
-      <!-- <router-link to="/contact">Contact</router-link> <br>
-      <router-link to="/services">Services</router-link> <br>
-      <router-link to="/gallery">Gallery</router-link> -->
+      <router-link to="/mypage">My Page</router-link>
     </div>
     <router-view></router-view>
   </div>

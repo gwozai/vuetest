@@ -10,13 +10,16 @@ import { defineComponent } from 'vue';
 import { useRouter } from 'vue-router';
 import { ElMessageBox } from 'element-plus';
 
+// 导入认证模块
+import auth from '@/store/auth.js';
+
 export default defineComponent({
   setup() {
     const router = useRouter();
 
     const login = () => {
       // 模拟登录成功，并存储用户信息到本地存储
-      localStorage.setItem('user', 'loggedInUser');
+      auth.login('admin', 'password');
 
       // 导航到原始路径或首页
       if (router.currentRoute.value.query.redirect) {
@@ -38,6 +41,15 @@ export default defineComponent({
         // 用户点击了取消按钮，不执行任何操作
       });
     };
+
+    // 调用登录功能
+    const loggedIn = auth.login('admin', 'password');
+    // 如果登录成功，则输出用户信息
+    if (loggedIn) {
+      console.log('User logged in:', auth.user);
+    } else {
+      console.log('Login failed');
+    }
 
     return {
       showLoginConfirm

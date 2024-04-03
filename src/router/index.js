@@ -5,13 +5,25 @@ import Home from '@/views/Home.vue'
 import Gallery from '@/views/Gallery.vue'
 import Login from '@/views/Login.vue'
 import About from '@/views/About.vue'
+import Mypage from '@/views/mypage.vue'
 
+import auth from '@/store/auth.js'
 
 const routes = [
+
+
   {
     path: "/",
     name: "Home",
     component: Home
+
+  },
+  {
+    path: "/mypage",
+    name: "Mypage",
+    component: Mypage,
+    meta: { requiresAuth: true } // 添加 requiresAuth 元字段
+
 
   },
   {
@@ -63,10 +75,14 @@ const router = createRouter({
 
 
 
+
+
+
 // 添加全局导航守卫
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    if (!isAuthenticated()) {
+    // if (!isAuthenticated()) {
+    if (!auth.isAuthenticated()) {
       // 如果用户未登录且访问需要认证的页面，则重定向到登录页面
       next({
         path: '/login',
@@ -85,7 +101,7 @@ router.beforeEach((to, from, next) => {
 });
 
 
+// export default router;
 
-
-export { router, login, logout ,isAuthenticated};
+export { router, login, logout };
 
