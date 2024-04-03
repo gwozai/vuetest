@@ -110,7 +110,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 // 如果是生产环境，并且路径是根路径，则重定向到 mypage 页面
 if (isProduction) {
   router.beforeEach((to, from, next) => {
-    if (to.path === '/') {
+    if (to.path === '/home') {
       next('/mypage');
     } else {
       next();
