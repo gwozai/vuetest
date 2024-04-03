@@ -9,10 +9,9 @@ import Videoaa from '@/components/videoaa.vue';
 import Videojsaa from '@/components/videojsaa.vue';
 import Nihaowu from '@/components/nihaowu.vue';
 import Noterecordaa from '@/components/noterecordaa.vue';
-import Yiyan from '@/components/Yiyan.vue';
 import Todo from '@/views/todolista.vue';
 import SystemtoolviewVue from '@/views/systemtoolview.vue';
-
+import Yiyan from '@/components/yiyan111.vue';
 const componentsList = { Yiyan, Mediaaudio, Suijiyiju, Videoaa, Listmedia, Videojsaa,Nihaowu ,Noterecordaa,Yiyan,Videotest,SystemtoolviewVue};
 const components = Object.keys(componentsList);
 

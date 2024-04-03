@@ -41,3 +41,9 @@ npm run build
 
 2024/15：37
 路由组件， mypage 下的组件
+
+路由如果想要继续深入，看别人写的路由组件，问gpt，看vue文档，看bilibili视频，GitHub找源码。
+
+markdown笔记精进，
+
+vue可以扒现有的资源。
