@@ -11,19 +11,21 @@ import auth from '@/store/auth.js'
 
 const routes = [
 
-
   {
-    path: "/",
-    name: "Home",
-    component: Home
-
+    path: '/',
+    redirect: '/home' // 重定向到 /home
   },
   {
-    path: "/mypage",
+    path: '/home',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/mypage',
     name: "Mypage",
     component: Mypage,
-    meta: { requiresAuth: true } // 添加 requiresAuth 元字段
-
+    meta: { requiresAuth: true }, // 添加 requiresAuth 元字段
+    props: true // 将路由参数作为组件的 props 传递
 
   },
   {
@@ -116,7 +118,8 @@ if (isProduction) {
   });
 }
 
+
 // export default router;
 
-export { router, login, logout };
+export { router};
 
