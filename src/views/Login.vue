@@ -1,10 +1,9 @@
 <template>
-  <div>
-    <h2>Login Page</h2>
-    <button @click="showLoginConfirm">Login</button>
+  <div class="container">
+    <h2>登录页面</h2>
+    <el-button type="primary" @click="showLoginConfirm">Login</el-button>
   </div>
 </template>
-
 <script>
 import { defineComponent } from 'vue';
 import { useRouter } from 'vue-router';
@@ -57,3 +56,24 @@ export default defineComponent({
   }
 });
 </script>
+<style scoped>
+.container {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.el-button {
+  width: 100%;
+}
+</style>
