@@ -1,6 +1,8 @@
 // router/index.js
 // 如果是生产环境，直接跳转到mypage
-import { createRouter, createWebHistory } from "vue-router";
+// import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from 'vue-router';
+
 import Home from '@/views/Home.vue'
 import Gallery from '@/views/Gallery.vue'
 import Login from '@/views/Login.vue'
@@ -52,6 +54,14 @@ const routes = [
 
 
 
+// 创建路由实例 使用hash模式 带有#号
+const router = createRouter({
+  history: createWebHashHistory(),
+  routes
+});
+
+
+
 
 // 模拟用户登录状态
 let isAuthenticated = () => {
@@ -69,11 +79,6 @@ const logout = () => {
 };
 
 
-// 创建路由实例
-const router = createRouter({
-  history: createWebHistory(),
-  routes
-});
 
 
 
