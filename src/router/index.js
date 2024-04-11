@@ -80,11 +80,6 @@ const logout = () => {
 
 
 
-
-
-
-
-
 // 添加全局导航守卫
 router.beforeEach((to, from, next) => {
   console.log(`Navigating to ${to.fullPath}`); // 打印日志
