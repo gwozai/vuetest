@@ -8,6 +8,7 @@ import Gallery from '@/views/Gallery.vue'
 import Login from '@/views/Login.vue'
 import About from '@/views/About.vue'
 import Mypage from '@/views/mypage.vue'
+import Websocketss from '@/views/homeindex.vue'
 
 import auth from '@/store/auth.js'
 
@@ -19,8 +20,8 @@ const routes = [
   },
   {
     path: '/home',
-    name: 'Home',
-    component: Home
+    name: 'Websocketss',
+    component: Websocketss
   },
   {
     path: '/mypage',
