@@ -1,16 +1,29 @@
 <template>
   <div class="container">
-    <h2 class="heading">标题列表</h2>
-    <div class="card-container">
-      <div class="card" v-for="(item, index) in items" :key="index">
-        <router-link :to="'/text/' + item.number" class="card-link">
-          <div class="card-content">
-            <!-- <div class="card-number">{{ index + 1 }}</div> -->
-            <div class="card-title">{{ item.title }}</div>
-          </div>
-        </router-link>
-      </div>
-    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>行数</th>
+          <th>标题</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(item, index) in items" :key="index">
+          <td>{{ index + 1 }}</td>
+          <td>
+            <router-link :to="'/text/' + item.number" class="link">
+              {{ item.title }}
+            </router-link>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+    <div>
+    <P>获取参数，用来分页使用 page: {{page}}  age: {{age}}</P>
+
+    <router-link :to="{ path: '/text', query: { page: 1 } }">跳转到 Text 页面，带参数 page=1</router-link>
+  </div>
   </div>
 </template>
 
@@ -18,6 +31,8 @@
 export default {
   data() {
     return {
+      page: null,
+      age: null,
       items: [
         { number: 45465789, title: '间谍过家家剧情' },
         { number: 549898, title: '大狗狗的股市' },
@@ -32,60 +47,41 @@ export default {
         { number: 901234, title: '创意DIY：用废物做出有趣的装饰品' },
         { number: 987654, title: '五本书推荐给喜欢科幻小说的你' }
       ]
+    
     };
+  },
+  mounted() {
+    this.page = this.$route.query.page;
+    this.age = this.$route.query.age;
   }
 };
 </script>
 
 <style scoped>
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+  margin: 20px;
 }
 
-.heading {
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: #333;
+.table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
 }
 
-.card {
-  width: calc(33.33% - 20px);
-  margin-right: 20px;
-  margin-bottom: 20px;
-  background-color: #f8f8f8;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+th {
+  background-color: #f5f5f5;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card-link {
+.link {
+  color: #007bff;
   text-decoration: none;
 }
 
-.card-content {
-  padding: 20px;
-}
-
-.card-number {
-  font-size: 18px;
-  font-weight: bold;
-  color: #666;
-}
-
-.card-title {
-  margin-top: 8px;
-  font-size: 16px;
-  color: #333;
+.link:hover {
+  text-decoration: underline;
 }
 </style>

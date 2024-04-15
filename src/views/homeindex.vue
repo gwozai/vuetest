@@ -2,6 +2,11 @@
   <div id="app">
     <!-- 弹窗组件，仅在收到消息时显示 -->
     <popup-component v-if="receivedMessage" :message="receivedMessage" @close="closePopup"></popup-component>
+
+    <p>点击ping的按钮可以回复pong</p>
+    <p>点击讲个笑话的按钮可以返回笑话事件</p>
+    <p>可以通知页面，当用户连接上线时，弹一些好玩的</p>
+    <p>可以统计在线人数</p>
   </div>
 </template>
 
