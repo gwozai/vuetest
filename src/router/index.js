@@ -9,6 +9,8 @@ import Login from '@/views/Login.vue'
 import About from '@/views/About.vue'
 import Mypage from '@/views/mypage.vue'
 import Websocketss from '@/views/homeindex.vue'
+import Text from '@/views/Text.vue'
+import TextPage from '@/views/TextPage.vue'
 
 import auth from '@/store/auth.js'
 
@@ -16,12 +18,23 @@ const routes = [
 
   {
     path: '/',
-    redirect: '/home' // 重定向到 /home
+    redirect: '/Home' // 重定向到 /home
   },
+
   {
     path: '/home',
-    name: 'Websocketss',
-    component: Websocketss
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/text',
+    name: 'Text',
+    component: Text
+  },
+  {
+    path: '/text/:number',
+    name: 'TextPage',
+    component: TextPage
   },
   {
     path: '/mypage',

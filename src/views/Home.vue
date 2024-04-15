@@ -14,6 +14,10 @@
     <p>模拟用户退出，并清除本地存储中的用户信息</p>
     <MonidenglutuichuVue></MonidenglutuichuVue>
 
+    <p>一个文本页面</p>
+    <router-link to="/text">text</router-link>
+    
+
   </div>
 </template>
 
