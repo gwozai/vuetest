@@ -1,11 +1,14 @@
 <template>
     <div>
-      <h1>内存监测组件</h1>
-      <ul>
+      <h2>内存监测组件</h2>
+      <ul v-if="Object.keys(systemInfo).length > 0">
         <li v-for="(value, key) in systemInfo" :key="key">
           {{ key }}: {{ formatValue(key, value) }}
         </li>
       </ul>
+      <div v-else>
+        sse连接失败，请检查服务器
+      </div>
     </div>
   </template>
   
@@ -43,6 +46,11 @@
       this.eventSource.addEventListener('message', (event) => {
         const data = JSON.parse(event.data);
         this.systemInfo = data;
+      });
+  
+      // 监听错误事件，处理连接错误
+      this.eventSource.addEventListener('error', () => {
+        this.systemInfo = {}; // 清空系统信息
       });
     },
     beforeDestroy() {
