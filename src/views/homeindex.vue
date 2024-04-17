@@ -27,7 +27,7 @@ export default {
     const heartbeatIntervalTime = 300; // 发送心跳的间隔，比如3秒
 
     const connectWebSocket = () => {
-      websocket = new WebSocket('ws://127.0.0.1:5678');
+      websocket = new WebSocket('ws://1.15.7.2:8765');
 
       websocket.onopen = () => {
         console.log("WebSocket connection established.");

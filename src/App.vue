@@ -3,6 +3,8 @@
     <div class="navigation">
       <router-link :to="{ path: '/mypage' }" class="nav-item">我的主页</router-link>
       <router-link :to="{ path: '/home' }" class="nav-item">测试中的页面...</router-link>
+      <router-link :to="{ path: '/websocket' }" class="nav-item">聊天室测试</router-link>
+
     </div>
     <router-view></router-view>
     <Footer></Footer>

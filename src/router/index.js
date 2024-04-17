@@ -11,6 +11,7 @@ import Mypage from '@/views/mypage.vue'
 import Websocketss from '@/views/homeindex.vue'
 import Text from '@/views/Text.vue'
 import TextPage from '@/views/TextPage.vue'
+import Websocket from '@/views/websocket.vue'
 
 import auth from '@/store/auth.js'
 
@@ -20,7 +21,12 @@ const routes = [
     path: '/',
     redirect: '/Home' // 重定向到 /home
   },
-
+  
+  {
+    path: '/websocket',
+    name: 'Websocket',
+    component: Websocket
+  },
   {
     path: '/home',
     name: 'Home',
