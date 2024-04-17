@@ -1,38 +1,41 @@
-<!-- <template>
-  <div>
-    <h1>About Page</h1>
-    <p>这是一个关于页面</p>
-    <div>
-      <p>gallery页面需要登录</p>
-      <router-link to="/gallery">gallery</router-link>
-    </div>
-  </div>
-</template> -->
-
 <template>
   <div>
+    <el-button @click="showFormDialog = true" type="success" style="margin-bottom: 20px;">Add URL</el-button>
+
+    <el-dialog v-model="showFormDialog" title="Add URL">
+      <el-form :model="newURL" ref="urlForm" :rules="urlFormRules">
+        <el-form-item label="URL" prop="url">
+          <el-input v-model="newURL.url" placeholder="Enter URL"></el-input>
+        </el-form-item>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="showFormDialog = false">Cancel</el-button>
+        <el-button type="primary" @click="addURL">Add</el-button>
+      </span>
+    </el-dialog>
+
     <el-table :data="urls" stripe border>
       <el-table-column prop="url" label="URL">
         <template v-slot="{ row, $index }">
           <el-input v-model="row.url" placeholder="Enter URL"></el-input>
         </template>
       </el-table-column>
+      <el-table-column label="Preview">
+        <template v-slot="{ row, $index }">
+          <el-button @click="openPreview(row.url)" type="primary" size="mini">Preview</el-button>
+        </template>
+      </el-table-column>
       <el-table-column label="Actions">
         <template v-slot="{ row, $index }">
           <el-button @click="removeURL($index)" type="danger" size="mini">Remove</el-button>
-          <el-button @click="openPopup(row)" type="primary" size="mini">Open Popup</el-button>
         </template>
       </el-table-column>
     </el-table>
 
-    <div v-for="(url, index) in urls" :key="index">
-      <a :href="getPreviewURL(url.url)" target="_blank">{{ url.url }}</a>
-    </div>
-
-    <el-dialog v-model="showPopup" title="Popup" :close-on-click-modal="false">
-      <iframe :src="popupURL" style="width: 100%; height: 400px; border: none;"></iframe>
+    <el-dialog v-model="showPreviewDialog" title="Preview" :close-on-click-modal="false">
+      <iframe :src="previewURL" style="width: 100%; height: 400px; border: none;"></iframe>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="showPopup = false">Close</el-button>
+        <el-button @click="showPreviewDialog = false">Close</el-button>
       </span>
     </el-dialog>
   </div>
@@ -43,23 +46,35 @@ import { ref } from 'vue';
 
 export default {
   setup() {
-    const urls = ref([{ url: 'http://1.15.7.2:9000/album/commonutils/generate_requirements.bat' }]);
-    const showPopup = ref(false);
-    const popupURL = ref('');
+    const urls = ref([{ url: ' http://1.15.7.2:9000/album/commonutils/generate_requirements.bat' }]);
+    const showFormDialog = ref(false);
+    const newURL = ref({ url: '' });
+    const showPreviewDialog = ref(false);
+    const previewURL = ref('');
+
+    const urlFormRules = {
+      url: [
+        { required: true, message: 'Please enter the URL', trigger: 'blur' }
+      ]
+    };
+
+    const addURL = () => {
+      const form = newURL.value;
+      form.url = form.url.trim();
+      if (form.url) {
+        urls.value.push({ url: form.url });
+        showFormDialog.value = false;
+      }
+    };
 
     const removeURL = index => {
       urls.value.splice(index, 1);
     };
 
-    const openPopup = row => {
-      const encodedURL = encodeURIComponent(base64Encode(row.url));
-      popupURL.value = `http://1.15.7.2:8012/onlinePreview?url=${encodedURL}`;
-      showPopup.value = true;
-    };
-
-    const getPreviewURL = url => {
+    const openPreview = url => {
       const encodedURL = encodeURIComponent(base64Encode(url));
-      return `http://1.15.7.2:8012/onlinePreview?url=${encodedURL}`;
+      previewURL.value = `http://1.15.7.2:8012/onlinePreview?url=${encodedURL}`;
+      showPreviewDialog.value = true;
     };
 
     const base64Encode = url => {
@@ -67,7 +82,7 @@ export default {
       return btoa(url);
     };
 
-    return { urls, showPopup, popupURL, removeURL, openPopup, getPreviewURL };
+    return { urls, showFormDialog, newURL, showPreviewDialog, previewURL, urlFormRules, addURL, removeURL, openPreview };
   }
 };
 </script>
